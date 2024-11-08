@@ -1,0 +1,39 @@
+/* Hide the default cursor globally */
+body {
+    cursor: none !important; /* Forcefully hide the default system cursor */
+  }
+  
+  /* Custom cursor styles */
+  .custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    pointer-events: none; /* Ensure it doesn't interfere with other elements */
+    transition: width 0.2s ease, height 0.2s ease;
+    z-index: 9999;
+  }
+  
+  /* Tail for the cursor */
+  .cursor-tail {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: tail-animation 0.5s forwards;
+  }
+  
+  @keyframes tail-animation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+  }
+  

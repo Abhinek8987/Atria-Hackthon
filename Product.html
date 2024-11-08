@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="register-page">
+        <div class="register-container">
+            <h2>Sign Up</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" placeholder="Enter First Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" placeholder="Enter Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="text" id="mobileNumber" placeholder="Enter Mobile Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+                <button type="submit" class="register-button">Register</button>
+            </form>
+
+            <!-- Google Sign Up Button -->
+            <button class="google-signup-button">Sign Up with Google</button>
+
+            <!-- Thank You Message (Initially hidden) -->
+            <div class="message success" id="thankYouMessage" style="display: none;">
+                <p>Thank you for creating an account!</p>
+            </div>
+
+            <div class="login-link">
+                <p>Already have an account? <a href="index.html" class="login-here">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
