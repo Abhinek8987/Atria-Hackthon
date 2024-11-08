@@ -62,6 +62,7 @@ src="https://www.facebook.com/tr?id=996786264863447&ev=PageView&noscript=1"
     
     <!-- ====== global style ====== -->
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="cursor.css" />
 </head>
 
 <body>
@@ -499,6 +500,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="assets/js/lib/scrollIt.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/lib/validate.js"></script>
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cursor = document.getElementById("custom-cursor");
+            const navbarLinks = document.querySelectorAll('.navbar a');  // Select all navbar links
+        
+            // Hide the default cursor
+            document.body.style.cursor = "none"; 
+        
+            // Track mouse movement
+            document.addEventListener("mousemove", function(event) {
+                const { clientX: x, clientY: y } = event;
+        
+                // Move the main cursor, considering the page scroll position
+                cursor.style.left = `${x + window.scrollX}px`; // Add scroll position to X
+                cursor.style.top = `${y + window.scrollY}px`; // Add scroll position to Y
+        
+                // Create cursor trail
+                createCursorTrail(x + window.scrollX, y + window.scrollY);
+            });
+        
+            // Create cursor trail elements
+            function createCursorTrail(x, y) {
+                const trail = document.createElement('div');
+                trail.classList.add('cursor-tail');
+                trail.style.left = `${x}px`;
+                trail.style.top = `${y}px`;
+                document.body.appendChild(trail);
+        
+                // Apply the same color to the trail as the cursor
+                const currentColor = cursor.style.backgroundColor;
+                trail.style.backgroundColor = currentColor;
+        
+                // Remove trail after animation ends
+                setTimeout(() => trail.remove(), 500);
+            }
+        
+            // Function to change cursor and trail color randomly
+            function changeCursorColor() {
+                const colors = ['#FF5733', '#33FF57', '#3357FF', '#FFFF33', '#FF33A1']; // Example color array
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                cursor.style.backgroundColor = randomColor; // Change the cursor's color
+            }
+        
+            // Change cursor color every 2 seconds
+            setInterval(changeCursorColor, 2000);
+        
+            // Enlarge cursor when hovering over navigation links
+            navbarLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    cursor.style.width = "30px";   // Enlarge cursor
+                    cursor.style.height = "30px";
+                    cursor.style.opacity = "0.5";  // Enlarge cursor
+                });
+                link.addEventListener('mouseleave', () => {
+                    cursor.style.width = "20px";   // Default cursor size
+                    cursor.style.height = "20px";
+                    cursor.style.opacity = "1"; // Default cursor size
+                });
+            });
+        });
+    </script> 
 
 </body>
 

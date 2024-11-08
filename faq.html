@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastersolis Chatbot</title>
+    <link rel="stylesheet" href="faq.css">
+</head>
+<body>
+    <div class="chatbot-wrapper">
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <h2>Mastersolis Chatbot</h2>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chat-message bot">
+                    <p>Hello! How can I assist you today?</p>
+                    <span class="message-time">Just now</span>
+                </div>
+            </div>
+            <form class="chatbot-input" id="chatbot-form">
+                <input type="text" id="user-input" placeholder="Ask about our appliances..." required />
+                <button type="submit">Send</button>
+            </form>
+            <div class="quick-replies" id="quick-replies"></div>
+        </div>
+    </div>
+
+    <script src="faq.js"></script>
+</body>
+</html>

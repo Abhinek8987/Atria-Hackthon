@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div id="message" class="message"></div>
+                <div class="form-group">
+                    <label for="username">Username (Email)</label>
+                    <input type="text" id="username" placeholder="Enter Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter Password" required>
+                </div>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+
+            <button id="googleSignInButton" class="google-signin-button">Sign in with Google</button>
+
+            <div class="register-link">
+                <p>Don’t have an account? <a href="register.html" class="register-here">Register here</a></p>
+            </div>
+
+            <div class="forgot-password-link">
+                <p>Forgot your password? <a href="ForgotPassword.html">Reset it here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+      // Your web app's Firebase configuration (Firebase setup would be similar as in previous code)
+      // For testing purposes, using mock login without Firebase Authentication
+      const mockUsers = {
+        "testuser@example.com": "password123", // Mock username and password
+        "admin@example.com": "adminpassword"  // Another example user
+      };
+
+      // DOM Elements
+      const loginForm = document.getElementById('loginForm');
+      const message = document.getElementById('message');
+
+      // Mock email/password login (replace with Firebase auth for real use)
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Check credentials
+        if (mockUsers[email] && mockUsers[email] === password) {
+          message.className = 'message success';
+          message.textContent = 'Login successful!';
+          // Redirect to another page (e.g., dashboard)
+          window.location.href = "dashboard.html";
+        } else {
+          message.className = 'message error';
+          message.textContent = 'Login failed. Please check your credentials.';
+        }
+      });
+
+      // Mock Google sign-in (this can be replaced with real Google sign-in logic using Firebase)
+      document.getElementById('googleSignInButton').addEventListener('click', () => {
+        message.className = 'message success';
+        message.textContent = 'Google login successful!';
+        // Redirect to another page (e.g., dashboard)
+        window.location.href = "dashboard.html";
+      });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

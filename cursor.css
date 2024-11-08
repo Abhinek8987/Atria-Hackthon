@@ -1,7 +1,4 @@
-/* Hide the default cursor globally */
-body {
-    cursor: none !important; /* Forcefully hide the default system cursor */
-  }
+
   
   /* Custom cursor styles */
   .custom-cursor {

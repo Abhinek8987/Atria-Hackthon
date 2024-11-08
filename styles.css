@@ -1,0 +1,102 @@
+/* Login Page with Improved Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px 30px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+}
+
+.login-button, .google-signin-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #4b79a1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.google-signin-button {
+    background-color: #db4437;
+}
+
+.login-button:hover, .google-signin-button:hover {
+    background-color: #355b7d;
+}
+
+.google-signin-button:hover {
+    background-color: #c53727;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    text-align: center;
+    width: 100%;
+}
+
+.message.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.message.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+.register-link, .forgot-password-link {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+}
+
+.register-link p, .forgot-password-link p {
+    margin: 5px 0;
+}
+
+.register-here, .forgot-password-link a {
+    color: #4b79a1;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-here:hover, .forgot-password-link a:hover {
+    color: #283e51;
+}
