@@ -58,25 +58,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Normalize the message by removing question mark and converting to lowercase
         const lowerCaseMessage = message.replace(/\?$/, '').toLowerCase();
-        let botResponse = "I'm sorry, I didn't understand that. Can you please rephrase?";
+        let botResponse = predefinedResponses[lowerCaseMessage] || "I'm sorry, I didn't understand that. Can you please rephrase?";
 
-        // Check for predefined responses
-        if (predefinedResponses[lowerCaseMessage]) {
-            botResponse = predefinedResponses[lowerCaseMessage];
-        } else if (message.length > 100) {
-            // Handle long questions or new queries
-            botResponse = "That's a great question! Let me find the best answer for you...";
-        }
+        // Display "Bot is typing..." message and set it to visible
+        const typingMessage = document.createElement("div");
+        typingMessage.classList.add("chat-message", "bot", "typing-indicator");
+        typingMessage.innerHTML = `<p>Bot is typing...</p>`;
+        typingMessage.style.visibility = "visible"; // Set visibility to show "typing..."
+        chatbotMessages.appendChild(typingMessage);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
-        // Display "bot is typing..." message
-        displayMessage("Bot is typing...", "bot");
-        
         // Simulate bot typing delay
         setTimeout(() => {
-            // Remove "bot is typing..." and show the response
-            const typingMessage = chatbotMessages.querySelector(".chat-message.bot");
-            if (typingMessage) typingMessage.remove();
-            
+            // Hide the typing indicator and show the actual response
+            typingMessage.style.visibility = "hidden"; // Hide "Bot is typing..."
             displayMessage(botResponse, "bot");
         }, 1500); // Delay for "typing..." effect
     }
